@@ -3,30 +3,49 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-modelo  = "gtp-4o"
-prompt_sistema = """
-
-"""
-
-prompt_usuario = """
-
-"""
 cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-respuesta = cliente.chat.completions.create(
-    messages= [
-        {
-            "role":"system",
-            "content":prompt_sistema
-            },
-        {
-            "role":"user",
-            "content":prompt_usuario
-        }
-    ],
-    model = modelo,
-    temperature=1,
-    max_tokens=200,
-    
-)
+modelo = "gpt-4"
 
-print(respuesta.choices[0].message.content)
+def categoriza_producto(nombre_producto, lista_categorias_posibles):
+    prompt_sistema = f"""
+        Eres un categorizador de productos.
+        Debes asumir las categorías presentes en la lista a continuación.
+
+        # Lista de Categorías Válidas
+        {lista_categorias_posibles.split(",")}
+
+        # Formato de Salida
+        Producto: Nombre del Producto
+        Categoría: presenta la categoría del producto
+
+        # Ejemplo de Salida
+        Producto: Cepillo eléctrico con recarga solar
+        Categoría: Electrónicos Verdes
+
+    """
+
+    respuesta = cliente.chat.completions.create(
+        messages=[
+            {
+                "role":"system",
+                "content" : prompt_sistema
+            },
+            {
+                "role" : "user",
+                "content" : nombre_producto
+            }
+
+        ],
+        model=modelo,
+        temperature = 0,
+        max_tokens=200
+    )
+
+    return respuesta.choices[0].message.content
+
+categorias_validas = input("Informe las categorías válidas, separando por comas: ")
+
+while True:
+    nombre_producto = input("Escribe el nombre del producto: ")
+    texto_respuesta = categoriza_producto(nombre_producto, categorias_validas)
+    print(texto_respuesta)
