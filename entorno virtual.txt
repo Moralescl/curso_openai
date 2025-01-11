@@ -1,0 +1,58 @@
+En el próximo video, comenzaremos a desarrollar un proyecto en Python desde cero en nuestra propia computadora. Antes de empezar a crear el código, aprenderemos cómo realizar una buena práctica esencial antes de crear cualquier software en Python: la creación de un ambiente virtual.
+
+Crear un ambiente virtual para cada proyecto en Python es una práctica esencial en el desarrollo de software con este lenguaje. Un ambiente virtual es un espacio aislado que contiene su propia copia del intérprete de Python y bibliotecas, permitiendo que diferentes proyectos tengan dependencias independientes, lo que evita conflictos entre bibliotecas y garantiza consistencia en diferentes entornos de trabajo. Este enfoque es crucial para mantener la estabilidad, facilitar la colaboración y simplificar la implementación de proyectos, permitiendo que cada proyecto tenga su propio conjunto controlado de dependencias sin interferir en los otros.
+
+Si estás utilizando un sistema operativo Linux, la creación de un ambiente virtual para cada proyecto en Python se vuelve aún más crucial. Muchas distribuciones de Linux ya utilizan versiones diferentes de Python para ejecutar scripts internos del sistema. Un ambiente virtual evita conflictos en esos scripts.
+
+Sigue los pasos a continuación para configurar tu entorno de desarrollo:
+
+Creación y utilización de un ambiente virtual
+Paso Previo: Navega al Directorio del Proyecto
+Abre tu terminal o prompt de comandos.
+Usa el siguiente comando para moverte al directorio donde quieres crear tu proyecto:
+cd /ruta/del/proyecto
+Copia el código
+En Windows, por ejemplo:
+
+cd C:\ruta\del\proyecto
+Copia el código
+Paso 1: Crea el Ambiente Virtual
+Ejecuta el siguiente comando según tu sistema operativo:
+
+Windows:
+
+python -m venv curso_1_openai
+Copia el código
+Mac/Linux:
+
+python3 -m venv curso_1_openai
+Copia el código
+Paso 2: Activa el Ambiente Virtual
+Activa el ambiente virtual que acabas de crear con el comando correspondiente:
+
+Windows:
+
+curso_1_openai\Scripts\activate
+Copia el código
+Mac/Linux:
+
+source curso_1_openai/bin/activate
+Copia el código
+Cuando el ambiente virtual esté activado, deberías ver el nombre del entorno (por ejemplo, (curso_1_openai)) al inicio de tu línea de comandos.
+
+Paso 3: Instala las Bibliotecas Necesarias
+Con el ambiente virtual activado, instala las bibliotecas requeridas para el curso:
+
+pip install openai python-dotenv
+Copia el código
+Paso 4: Verifica las Instalaciones
+Para asegurarte de que las bibliotecas y Python estén correctamente instalados, ejecuta los siguientes comandos:
+
+python --version
+pip show dotenv
+pip show openai
+Copia el código
+Paso 5: Configuración en VSCode (Opcional)
+Si usas VSCode, asegúrate de seleccionar el ambiente virtual como intérprete de Python. Usa el atajo Ctrl+Shift+P y selecciona el Intérprete de Python dentro del directorio bin en el directorio .venv.
+
+¡Listo! Ahora está todo preparado para que comencemos a hacer los proyectos del curso.
