@@ -1,7 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-
+import openai
 load_dotenv()
 cliente = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 modelo = "gpt-4"
@@ -23,25 +23,27 @@ def categoriza_producto(nombre_producto, lista_categorias_posibles):
         Categoría: Electrónicos Verdes
 
     """
+    try: 
+        respuesta = cliente.chat.completions.create(
+            messages=[
+                {
+                    "role":"system",
+                    "content" : prompt_sistema
+                },
+                {
+                    "role" : "user",
+                    "content" : nombre_producto
+                }
 
-    respuesta = cliente.chat.completions.create(
-        messages=[
-            {
-                "role":"system",
-                "content" : prompt_sistema
-            },
-            {
-                "role" : "user",
-                "content" : nombre_producto
-            }
+            ],
+            model=modelo,
+            temperature = 0,
+            max_tokens=200
+        )
 
-        ],
-        model=modelo,
-        temperature = 0,
-        max_tokens=200
-    )
-
-    return respuesta.choices[0].message.content
+        return respuesta.choices[0].message.content
+    except openai.APIError as e:
+        print(f'Error de conexión a la API: {e}')
 
 categorias_validas = input("Informe las categorías válidas, separando por comas: ")
 

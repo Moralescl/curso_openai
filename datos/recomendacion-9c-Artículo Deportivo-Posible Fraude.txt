@@ -1,0 +1,13 @@
+**Recomendación Técnica:**
+
+1. **Acción Inmediata:** Notificar al cliente sobre la transacción marcada como posible fraude, proporcionando detalles sobre el monto, horario, y establecimiento.
+   
+2. **Activación de Sector Anti-Fraude:** Dada la naturaleza del fraude, se debe activar el sector Anti-Fraude para investigar patrones similares en la cuenta del cliente y posibles transacciones sospechosas adicionales.
+
+3. **Verificación Manual:** Realizar una verificación manual para confirmar la autenticidad de la transacción, incluyendo contacto directo con el titular de la cuenta para obtener su confirmación sobre la compra del artículo deportivo.
+
+**Clasificación del Tipo de Fraude:**
+- **Tipo de Fraude:** Fraude por Suplantación de Identidad (Identity Theft Fraud) - la transacción ha sido realizada en un horario y lugar inciertos que no coinciden con los hábitos previos del cliente, lo que sugiere un alto riesgo de que la cuenta haya sido utilizada sin autorización.
+
+**Notas Adicionales:** 
+Es fundamental realizar un seguimiento de las acciones adoptadas y de la respuesta del cliente para establecer un protocolo adecuado en futuras situaciones de riesgo.
